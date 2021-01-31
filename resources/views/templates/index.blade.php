@@ -20,14 +20,8 @@
     {{-- HEADER --}}
     @include('templates.partials._header')
 
-    {{-- HERO --}}
-    @include('templates.partials._hero')
-
-    {{-- RECENT WORK --}}
-    @include('templates.partials._recentWorks')
-
-    {{-- LATEST POSTS --}}
-    @include('templates.partials._latestPosts')
+    {{-- ZONE DYNAMIQUE --}}
+    @yield('content')
 
     {{-- FOOTER --}}
     @include('templates.partials._footer')

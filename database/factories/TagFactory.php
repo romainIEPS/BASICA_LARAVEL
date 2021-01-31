@@ -22,7 +22,9 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word,
+            'created_at' => $this->faker->dateTimeThisDecade('now'),
+            'updated_at' => null
         ];
     }
 }

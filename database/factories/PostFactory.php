@@ -22,7 +22,12 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->words(10, true),
+            'content' => $this->faker->paragraph(10),
+            'image' => $this->faker->numberBetween(1, 4).'.jpg',
+            'created_at' => $this->faker->dateTimeThisDecade('now'),
+            'updated_at' => null,
+            'categorie_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }

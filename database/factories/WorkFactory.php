@@ -22,7 +22,12 @@ class WorkFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->words(8, true),
+            'content' => $this->faker->paragraph(10),
+            'image' => $this->faker->numberBetween(1, 8).'.jpg',
+            'created_at' => $this->faker->dateTimeThisDecade('now'),
+            'updated_at' => null,
+            'client_id' => $this->faker->numberBetween(1, 15)
         ];
     }
 }

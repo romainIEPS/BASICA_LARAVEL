@@ -22,7 +22,9 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->company,
+            'created_at' => $this->faker->dateTimeThisDecade('now'),
+            'updated_at' => null
         ];
     }
 }

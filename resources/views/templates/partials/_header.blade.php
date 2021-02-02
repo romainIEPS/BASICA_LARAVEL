@@ -11,10 +11,10 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ route('homepage') }}">Home</a></li>
-                <li><a href="{{ route('portfolio.index') }}">Portfolio</a></li>
-                <li><a href="{{ route('blog.index') }}">Blog</a></li>
-                <li><a href="{{ route('contact') }}">Contact</a></li>
+                <li class="{{ (\Request::route()->getName() == 'homepage') ? 'active' : '' }}"><a href="{{ route('homepage') }}">Home</a></li>
+                <li class="{{ (\Request::route()->getName() == 'portfolio.index') ? 'active' : '' }}"><a href="{{ route('portfolio.index') }}">Portfolio</a></li>
+                <li class="{{ (\Request::route()->getName() == 'blog.index') ? 'active' : '' }}"><a href="{{ route('blog.index') }}">Blog</a></li>
+                <li class="{{ (\Request::route()->getName() == 'contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
         </div>
     </div>

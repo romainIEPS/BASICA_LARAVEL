@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Posts;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-})->name('homepage');
+// ROUTE PAR DEFAUT
+// PATTERN: /
+// CTRL: -
+// ACTION: -
+    Route::get('/', function () {
+        return view('home.index');
+    })->name('homepage');
+
+// ROUTE LISTE DES POSTS
+// PATTERN: /blog
+// CTRL: Posts
+// ACTION: index
+    Route::get('/blog', [Posts::class, 'index'])->name('blog.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';

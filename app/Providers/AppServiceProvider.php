@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\View\Composers\SliderComposer;
+use App\View\Composers\LatestPostsComposer;
+use App\View\Composers\RecentWorksComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('home._slider', SliderComposer::class);
+        View::composer('posts._latest', LatestPostsComposer::class);
+        View::composer('works._recent', RecentWorksComposer::class);
     }
 }

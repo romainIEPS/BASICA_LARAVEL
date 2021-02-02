@@ -23,7 +23,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->words(10, true),
-            'content' => $this->faker->paragraph(10),
+            'content' => $this->faker->paragraph(30),
             'image' => $this->faker->numberBetween(1, 4).'.jpg',
             'created_at' => $this->faker->dateTimeThisDecade('now'),
             'updated_at' => null,

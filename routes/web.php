@@ -24,6 +24,14 @@ use App\Http\Controllers\Works;
 // ACTION: index
     Route::get('/portfolio', [Works::class, 'index'])->name('portfolio.index');
 
+// ROUTE CONTACT
+// PATTERN: /contact
+// CTRL: -
+// ACTION: -
+    Route::get('/contact', function() {
+        return view('contact.index');
+    })->name('contact');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

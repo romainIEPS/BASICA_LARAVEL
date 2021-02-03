@@ -18,7 +18,7 @@
             <ul class="dropdown-menu">
               <li class="dropdown-header">Works</li>
               <li><a href="{{ route('admin.portfolio.index') }}">Liste des works</a></li>
-              <li><a href="posts/add/form">Ajouter un works</a></li>
+              <li><a href="{{ route('admin.portfolio.add.form') }}">Ajouter un works</a></li>
               <li role="separator" class="divider"></li>
             </ul>
           </li>

@@ -62,4 +62,13 @@ class Works extends Controller
 
         return view('admin.works.index', compact('works'));
     }
+
+    /**
+     * Formulaire d'ajout d'un work
+     *
+     * @return view
+     */
+    public function adminWorksAddForm() {
+        return view('admin.works.addForm');
+    }
 }

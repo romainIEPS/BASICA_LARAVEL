@@ -8,6 +8,10 @@
     Portfolio
 @endsection
 
+@section('scripts')
+    <script src="{{ asset('assets/js/works/index.js') }}"></script>
+@endsection
+
 @section('content')
 <!-- Page Title -->
 <div class="section section-breadcrumbs">
@@ -36,31 +40,15 @@
     </div>
 </div>
 
-<div class="section">
+<div class="section" id="test">
     <div class="container">
         <div class="row">
-
-    <ul class="grid cs-style-2">
-        @foreach ($works as $work)
-        <div class="col-md-4 col-sm-6">
-            <figure>
-                <img src="{{ asset('assets/img/portfolio/' . $work->image) }}" alt="{{ $work->title }}">
-                <figcaption>
-                    <h3>{{ $work->title }}</h3>
-                    <span>{{ $work->client->name }}</span>
-                    <a href="{{ route('portfolio.show', ['work' => $work->id, 'slug'=> Str::slug($work->title, '-')]) }}">Take a look</a>
-                </figcaption>
-            </figure>
-        </div>
-        @endforeach
-    </ul>
-
-
+            <ul class="grid cs-style-2" id="works_list">
+                @include('works._liste')
+            </ul>
         </div>
 
-        <ul class="pager">
-            <li><a href="#">More works</a></li>
-        </ul>
+        @include('works._more_btn')
 
     </div>
 </div>

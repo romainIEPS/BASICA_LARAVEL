@@ -8,4 +8,4 @@
 <script src="{{ asset('assets/js/scrolling-nav.js') }}"></script>
 
 {{-- Zone de script --}}
-@yield('script')
+@yield('scripts')

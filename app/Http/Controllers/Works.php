@@ -33,4 +33,20 @@ class Works extends Controller
         ->get();
         return view('works.show', compact('work', 'similarWorks'));
     }
+
+    /**
+     * Affichage des x works suivant
+     *
+     * @param Request $request
+     * @return view
+     */
+    public function more(Request $request) {
+        $limit = (isset($request->limit)) ? $request->limit : 6;
+
+        $works = Work::orderBy('created_at', 'desc')
+                    ->take($limit)
+                    ->offset($request->offset)
+                    ->get();
+        return view('works._liste', compact('works'));
+    }
 }

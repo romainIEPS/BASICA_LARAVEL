@@ -48,6 +48,12 @@ use App\Http\Controllers\Works;
     ->where('post', '[1-9][0-9]*')
     ->name('blog.show');
 
+// ROUTE AJAX MORE WORKS
+// PATTERN: /works/ajax/more
+// CTRL: Works
+// ACTION: more
+    Route::get('/posts/ajax/more', [Works::class, 'more'])->name('works.ajax.more');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

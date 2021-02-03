@@ -32,13 +32,21 @@ use App\Http\Controllers\Works;
         return view('contact.index');
     })->name('contact');
 
-// ROUTE DETAIL D'UN WORKS
+// ROUTE DETAIL D'UN WORK
 // PATTERN: /portfolio/{work}/{slug}
 // CTRL: Works
 // ACTION: show
     Route::get('/portfolio/{work}/{slug}', [Works::class, 'show'])
            ->where('work', '[1-9][0-9]*')
            ->name('portfolio.show');
+
+// ROUTE DETAIL D'UN POST
+// PATTERN: /portfolio/{post}/{slug}
+// CTRL: Posts
+// ACTION: show
+    Route::get('/blog/{post}/{slug}', [Posts::class, 'show'])
+    ->where('post', '[1-9][0-9]*')
+    ->name('blog.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

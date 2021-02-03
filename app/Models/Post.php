@@ -13,6 +13,6 @@ class Post extends Model
      * Getter de la categorie du post
      */
     public function categorie() {
-        return $this->belongsTo('App\Models\Author');
+        return $this->belongsTo('App\Models\Categorie');
     }
 }

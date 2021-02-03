@@ -43,7 +43,7 @@
                             <p>
                                 {{ Str::limit($post->content, 300) }}
                             </p>
-                        <a href="blog-post.html" class="btn">Read more</a>
+                        <a href="{{ route('blog.show', ['post' => $post->id, 'slug'=> Str::slug($post->title, '-')])}}" class="btn">Read more</a>
                         </div>
                     </div>
                 </div>

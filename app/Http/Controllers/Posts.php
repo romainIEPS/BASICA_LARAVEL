@@ -18,4 +18,14 @@ class Posts extends Controller
                       ->paginate(4);
         return view('posts.index', compact('posts'));
     }
+
+    /**
+     * Détail d'un post
+     *
+     * @param Post $post
+     * @return view
+     */
+    public function show(Post $post) {
+        return view('posts.show', compact('post'));
+    }
 }

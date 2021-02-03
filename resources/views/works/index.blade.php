@@ -48,7 +48,7 @@
                 <figcaption>
                     <h3>{{ $work->title }}</h3>
                     <span>{{ $work->client->name }}</span>
-                    <a href="portfolio-item.html">Take a look</a>
+                    <a href="{{ route('portfolio.show', ['work' => $work->id, 'slug'=> Str::slug($work->title, '-')]) }}">Take a look</a>
                 </figcaption>
             </figure>
         </div>

@@ -18,4 +18,19 @@ class Works extends Controller
                       ->get();
         return view('works.index', compact('works'));
     }
+
+    /**
+     * Détail d'un work
+     *
+     * @param Work $work
+     * @return view
+     */
+    public function show(Work $work) {
+        $similarWorks = Work::whereHas('tags', function ($q) use ($work) {
+            return $q->whereIn('name', $work->tags->pluck('name'));
+        })
+        ->where('id', '!=', $work->id)
+        ->get();
+        return view('works.show', compact('work', 'similarWorks'));
+    }
 }

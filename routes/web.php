@@ -32,6 +32,14 @@ use App\Http\Controllers\Works;
         return view('contact.index');
     })->name('contact');
 
+// ROUTE DETAIL D'UN WORKS
+// PATTERN: /portfolio/{work}/{slug}
+// CTRL: Works
+// ACTION: show
+    Route::get('/portfolio/{work}/{slug}', [Works::class, 'show'])
+           ->where('work', '[1-9][0-9]*')
+           ->name('portfolio.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

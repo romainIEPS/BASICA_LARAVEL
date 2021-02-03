@@ -47,6 +47,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::pattern('slug', '[a-z0-9][a-z0-9\-]*');
     }
 
     /**

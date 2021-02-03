@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Posts;
-use App\Http\Controllers\Works;
 
 // ROUTE PAR DEFAUT
 // PATTERN: /
@@ -11,24 +9,18 @@ use App\Http\Controllers\Works;
     Route::get('/', function () {
         return view('home.index');
     })->name('homepage');
-    
-// ROUTE PAR DEFAUT
-// PATTERN: /dashboard
-// CTRL: -
-// ACTION: -
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
 
-
-// ROUTE DES WORKS
+// ROUTEUR DES WORKS
 require __DIR__.'/works.php';
 
-// ROUTE DES POSTS
+// ROUTEUR DES POSTS
 require __DIR__.'/posts.php';
 
-// ROUTE CONTACT
+// ROUTEUR CONTACT
 require __DIR__.'/contact.php';
 
-// ROUTE AUTH
+// ROUTEUR AUTH
 require __DIR__.'/auth.php';
+
+// ROUTEUR DASHBOARD
+require __DIR__.'/dashboard.php';

@@ -7,7 +7,7 @@
 
 <head>
 
-    @include('templates.partials._head')
+    @include('templates.partials.public._head')
 
 </head>
 
@@ -18,16 +18,16 @@
 
 
     {{-- HEADER --}}
-    @include('templates.partials._header')
+    @include('templates.partials.public._header')
 
     {{-- ZONE DYNAMIQUE --}}
     @yield('content')
 
     {{-- FOOTER --}}
-    @include('templates.partials._footer')
+    @include('templates.partials.public._footer')
 	    
     {{-- SCRIPTS --}}
-    @include('templates.partials._scripts')
+    @include('templates.partials.public._scripts')
 
     </body>
 </html>

@@ -11,52 +11,24 @@ use App\Http\Controllers\Works;
     Route::get('/', function () {
         return view('home.index');
     })->name('homepage');
-
-// ROUTE LISTE DES POSTS
-// PATTERN: /blog
-// CTRL: Posts
-// ACTION: index
-    Route::get('/blog', [Posts::class, 'index'])->name('blog.index');
-
-// ROUTE LISTE DES WORKS
-// PATTERN: /portfolio
-// CTRL: Works
-// ACTION: index
-    Route::get('/portfolio', [Works::class, 'index'])->name('portfolio.index');
-
-// ROUTE CONTACT
-// PATTERN: /contact
+    
+// ROUTE PAR DEFAUT
+// PATTERN: /dashboard
 // CTRL: -
 // ACTION: -
-    Route::get('/contact', function() {
-        return view('contact.index');
-    })->name('contact');
-
-// ROUTE DETAIL D'UN WORK
-// PATTERN: /portfolio/{work}/{slug}
-// CTRL: Works
-// ACTION: show
-    Route::get('/portfolio/{work}/{slug}', [Works::class, 'show'])
-           ->where('work', '[1-9][0-9]*')
-           ->name('portfolio.show');
-
-// ROUTE DETAIL D'UN POST
-// PATTERN: /portfolio/{post}/{slug}
-// CTRL: Posts
-// ACTION: show
-    Route::get('/blog/{post}/{slug}', [Posts::class, 'show'])
-    ->where('post', '[1-9][0-9]*')
-    ->name('blog.show');
-
-// ROUTE AJAX MORE WORKS
-// PATTERN: /works/ajax/more
-// CTRL: Works
-// ACTION: more
-    Route::get('/posts/ajax/more', [Works::class, 'more'])->name('works.ajax.more');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
 
 
+// ROUTE DES WORKS
+require __DIR__.'/works.php';
+
+// ROUTE DES POSTS
+require __DIR__.'/posts.php';
+
+// ROUTE CONTACT
+require __DIR__.'/contact.php';
+
+// ROUTE AUTH
 require __DIR__.'/auth.php';

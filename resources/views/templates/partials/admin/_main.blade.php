@@ -1,3 +1,3 @@
 <div class="container theme-showcase" role="main">
-    @yield('dashboardContent')
+    @yield('adminContent')
 </div> <!-- /container -->

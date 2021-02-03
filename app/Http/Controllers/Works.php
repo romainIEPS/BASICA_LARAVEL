@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Models\Work;
 
 class Works extends Controller
@@ -14,9 +15,10 @@ class Works extends Controller
      */
     public function index() {
         $works = Work::orderBy('created_at', 'desc')
-                      ->take(6)
-                      ->get();
-        return view('works.index', compact('works'));
+                    ->take(6)
+                    ->get();
+
+        return view('works.index', compact('works'));        
     }
 
     /**
@@ -48,5 +50,16 @@ class Works extends Controller
                     ->offset($request->offset)
                     ->get();
         return view('works._liste', compact('works'));
+    }
+
+    /**
+     * Select de tous les works
+     * pour l'admin
+     * @return view
+     */
+    public function adminWorksIndex() {
+        $works = Work::all();
+
+        return view('admin.works.index', compact('works'));
     }
 }

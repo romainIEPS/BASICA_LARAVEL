@@ -1,10 +1,10 @@
-@extends('templates.dashboard')
+@extends('templates.admin')
 
-@section('dashboardTitle')
+@section('adminTitle')
     Dashboard
 @endsection
 
-@section('dashboardContent')
+@section('adminContent')
     <div class="jumbotron">
       <h1>Dashboard</h1>
     </div>

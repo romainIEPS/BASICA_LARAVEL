@@ -9,7 +9,8 @@
     <h1>Ajout d'un post</h1>
   </div>
   
-  <form action="posts/add/insert" method="post">
+  <form action="{{ route('admin.portfolio.add')}}" method="post" enctype="multipart/form-data">
+    @csrf
   
     <div class="form-group">
       <div>
@@ -21,12 +22,13 @@
       <textarea name="content" class="form-control" rows="3"></textarea>
     </div>
     
+    <div class="form-group">
+      <input type="file" name="image" id="image">
+    </div>
     
-    @include('admin.tags._checkbox', ['tags' => \App\Models\Tag::all()])
+    @include('admin.tags._checkbox_add', ['tags' => \App\Models\Tag::all()])
     
-    @include('admin.categories._scrollingMenu', ['categories' => \App\Models\Categorie::all()])
-    
-    @include('admin.clients._scrollingMenu', ['clients' => \App\Models\Client::all()])
+    @include('admin.clients._scrollingMenu_add', ['clients' => \App\Models\Client::all()])
   
     <div>
       <input type="submit" />

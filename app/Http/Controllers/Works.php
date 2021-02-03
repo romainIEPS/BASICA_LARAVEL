@@ -71,4 +71,33 @@ class Works extends Controller
     public function adminWorksAddForm() {
         return view('admin.works.addForm');
     }
+
+    /**
+     * Insert d'un work
+     *
+     * @param Request $request
+     * @return view
+     */
+    public function adminWorksAdd(Request $request) {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $image = $request->file('image');
+        $imageName = $request->file('image')->getClientOriginalName();
+        $image->move(public_path('assets/img/portfolio'), $imageName);
+
+        $work = new Work;
+        $work->title = $request->title;
+        $work->content = $request->content;
+        $work->image = $imageName;
+        $work->inSlider = 1;
+        $work->created_at = now();
+        $work->updated_at = null;
+        $work->client_id = $request->client;
+        $work->save();
+        $work->tags()->attach($request->tags);
+        
+        return redirect()->route('admin.portfolio.index');
+    }
 }

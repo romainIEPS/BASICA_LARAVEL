@@ -22,3 +22,9 @@ use App\Http\Controllers\Works;
 // CTRL: Work
 // ACTION: adminWorksAddForm
     Route::get('/admin/portfolio/add/form', [Works::class, 'adminWorksAddForm'])->middleware(['auth'])->name('admin.portfolio.add.form');
+
+// AJOUT D'UN WORK: INSERT
+// PATTERN: admin/portfolio/add
+// CTRL: Work
+// ACTION: adminWorksAdd
+    Route::post('/admin/portfolio/add', [Works::class, 'adminWorksAdd'])->middleware(['auth'])->name('admin.portfolio.add');

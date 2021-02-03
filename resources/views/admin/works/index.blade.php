@@ -18,6 +18,7 @@
             <th>Title</th>
             <th>Content</th>
             <th>Created at</th>
+            <th>Updated at</th>
             <th>Image</th>
             <th>In Slider</th>
             <th>Client</th>
@@ -30,6 +31,7 @@
                 <td>{{ $work->title }}</td>
                 <td>{{ $work->content }}</td>
                 <td>{{\Carbon\Carbon::parse($work->created_at)->format('d F Y')}}</td>
+                <td>{{$work->updated_at === null ?'-':\Carbon\Carbon::parse($work->udated_at)->format('d F Y')}}</td>
                 <td><img src="{{ asset('assets/img/portfolio/' . $work->image) }}" alt="{{ $work->title }}" width="50"></td>
                 <td>{{ $work->inSlider == 0 ? 'No' : 'Yes'}}</td>
                 <td>{{ $work->client->name }}</td>

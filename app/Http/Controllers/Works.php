@@ -100,4 +100,13 @@ class Works extends Controller
         
         return redirect()->route('admin.portfolio.index');
     }
+
+    /**
+     * Formulaire de modification d'un work
+     *
+     * @return view
+     */
+    public function adminWorksEditForm(Work $work) {
+        return view('admin.works.editForm', compact('work'));
+    }
 }

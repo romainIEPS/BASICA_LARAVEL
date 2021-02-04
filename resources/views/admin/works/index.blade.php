@@ -36,7 +36,7 @@
                 <td>{{ $work->inSlider == 0 ? 'No' : 'Yes'}}</td>
                 <td>{{ $work->client->name }}</td>
                 <td>
-                    <a href="#">Edit</a>
+                    <a href="{{ route('admin.portfolio.edit.form', ['work' => $work->id]) }}">Edit</a>
                 </td>
                 <td>
                     <a href="#">Delete</a>

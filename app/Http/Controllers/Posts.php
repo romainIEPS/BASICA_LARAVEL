@@ -28,4 +28,15 @@ class Posts extends Controller
     public function show(Post $post) {
         return view('posts.show', compact('post'));
     }
+
+    /**
+     * Liste des posts
+     * pour l'admin
+     *
+     * @return void
+     */
+    public function adminPostsIndex() {
+        $posts = Post::all();
+        return view('admin.posts.index', compact('posts')); 
+    }
 }

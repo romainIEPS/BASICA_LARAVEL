@@ -20,6 +20,9 @@
               <li><a href="{{ route('admin.portfolio.index') }}">Liste des works</a></li>
               <li><a href="{{ route('admin.portfolio.add.form') }}">Ajouter un works</a></li>
               <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Posts</li>
+              <li><a href="{{ route('admin.posts.index') }}">Liste des posts</a></li>
+              <li><a href="#">Ajouter un posts</a></li>
             </ul>
           </li>
           <li><a href="{{ route('logout') }} ">Logout</a></li>

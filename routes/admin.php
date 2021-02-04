@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Works;
+use App\Http\Controllers\Posts;
 
 // ROUTE DASHBOARD
 // PATTERN: /dashboard
@@ -61,3 +62,11 @@ use App\Http\Controllers\Works;
            ->middleware(['auth'])
            ->where('work', '[1-9][0-9]*')
            ->name('admin.portfolio.delete');
+
+// ROUTE LISTE DES POSTS
+// PATTERN: /admin/posts/index
+// CTRL: Post
+// ACTION: adminPostsIndex
+    Route::get('/admin/posts/index', [Posts::class, 'adminPostsIndex'])
+           ->middleware(['auth'])
+           ->name('admin.posts.index');

@@ -1,3 +1,8 @@
+{{-- 
+  Variable disponible: 
+  $work Work  
+--}}
+
 @extends('templates.admin')
 
 @section('adminTitle')
@@ -12,7 +17,7 @@
   <a href="posts">Retour à la liste des posts</a>
 </div>
   
-  <form action="#" method="post" enctype="multipart/form-data">
+  <form action="{{ route('admin.portfolio.edit', ['work' => $work->id]) }}" method="post" enctype="multipart/form-data">
     @csrf
     
     <div class="form-group">

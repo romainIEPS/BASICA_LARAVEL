@@ -38,8 +38,17 @@ use App\Http\Controllers\Works;
 // UPDATE D'UN WORK: FORMULAIRE
 // PATTERN: admin/portfolio/edit/form
 // CTRL: Work
-// ACTION: adminWorksAdd
+// ACTION: adminWorksEditForm
     Route::get('/admin/portfolio/edit/form/{work}', [Works::class, 'adminWorksEditForm'])
            ->middleware(['auth'])
            ->where('work', '[1-9][0-9]*')
            ->name('admin.portfolio.edit.form');
+
+// UPDATE D'UN WORK
+// PATTERN: admin/portfolio/edit/{edit}
+// CTRL: Work
+// ACTION: adminWorksEdit
+    Route::post('/admin/portfolio/edit/{work}', [Works::class, 'adminWorksEdit'])
+           ->middleware(['auth'])
+           ->where('work', '[1-9][0-9]*')
+           ->name('admin.portfolio.edit');

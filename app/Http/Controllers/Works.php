@@ -102,11 +102,22 @@ class Works extends Controller
     }
 
     /**
-     * Formulaire de modification d'un work
+     * Update d'un work
      *
      * @return view
      */
     public function adminWorksEditForm(Work $work) {
         return view('admin.works.editForm', compact('work'));
+    }
+
+    public function adminWorksEdit(Work $work, Request $request) {
+        $work->title = $request->title;
+        $work->content = $request->content;
+        $work->updated_at = now();
+        $work->client_id = $request->client;
+        $work->save();
+        $work->tags()->detach($request->tags);
+        $work->tags()->attach($request->tags);
+        return redirect()->route('admin.portfolio.index');
     }
 }

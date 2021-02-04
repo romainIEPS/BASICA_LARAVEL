@@ -10,11 +10,11 @@
 @endsection
 
 @section('adminContent')
-<div class="page-header">
-    <h1>Modification d'un post</h1>
-</div>
 <div>
   <a href="{{ route('admin.posts.index') }}">Retour à la liste des posts</a>
+</div>
+<div class="page-header">
+    <h1>Modification d'un post</h1>
 </div>
   
   <form action="{{ route('admin.posts.edit', ['post' => $post->id]) }}" method="post" enctype="multipart/form-data">

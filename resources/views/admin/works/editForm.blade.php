@@ -10,12 +10,13 @@
 @endsection
 
 @section('adminContent')
+<div>
+  <a href="{{ route('admin.portfolio.index') }}">Retour à la liste des works</a>
+</div>
 <div class="page-header">
     <h1>Modification d'un work</h1>
 </div>
-<div>
-  <a href="posts">Retour à la liste des works</a>
-</div>
+
   
   <form action="{{ route('admin.portfolio.edit', ['work' => $work->id]) }}" method="post" enctype="multipart/form-data">
     @csrf

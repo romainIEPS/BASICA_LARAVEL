@@ -5,6 +5,9 @@
 @endsection
 
 @section('adminContent')
+<div>
+  <a href="{{ route('admin.portfolio.index') }}">Retour à la liste des works</a>
+</div>
 <div class="page-header">
     <h1>Ajout d'un work</h1>
   </div>

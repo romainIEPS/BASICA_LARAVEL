@@ -10,17 +10,11 @@ use Illuminate\Support\Facades\Route;
         return view('home.index');
     })->name('homepage');
 
-// ROUTEUR DES WORKS
-require __DIR__.'/works.php';
-
-// ROUTEUR DES POSTS
-require __DIR__.'/posts.php';
-
-// ROUTEUR CONTACT
-require __DIR__.'/contact.php';
+// ROUTEUR PUBLIC
+require __DIR__.'/public/public.php';
 
 // ROUTEUR AUTH
 require __DIR__.'/auth.php';
 
-// ROUTEUR DASHBOARD
-require __DIR__.'/admin.php';
+// ROUTEUR ADMIN
+require __DIR__.'/admin/admin.php';

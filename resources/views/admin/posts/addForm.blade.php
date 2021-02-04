@@ -5,6 +5,9 @@
 @endsection
 
 @section('adminContent')
+<div>
+  <a href="{{ route('admin.posts.index') }}">Retour à la liste des posts</a>
+</div>
 <div class="page-header">
     <h1>Ajout d'un post</h1>
   </div>

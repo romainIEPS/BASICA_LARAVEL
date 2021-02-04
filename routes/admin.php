@@ -36,7 +36,7 @@ use App\Http\Controllers\Works;
            ->name('admin.portfolio.add');
     
 // UPDATE D'UN WORK: FORMULAIRE
-// PATTERN: admin/portfolio/edit/form
+// PATTERN: admin/portfolio/edit/form/{work}
 // CTRL: Work
 // ACTION: adminWorksEditForm
     Route::get('/admin/portfolio/edit/form/{work}', [Works::class, 'adminWorksEditForm'])
@@ -52,3 +52,12 @@ use App\Http\Controllers\Works;
            ->middleware(['auth'])
            ->where('work', '[1-9][0-9]*')
            ->name('admin.portfolio.edit');
+
+// DELETE D'UN WORK
+// PATTERN: admin/portfolio/delete/{work}
+// CTRL: Work
+// ACTION: adminWorksDelete
+    Route::get('/admin/portfolio/delete/{work}', [Works::class, 'adminWorksDelete'])
+           ->middleware(['auth'])
+           ->where('work', '[1-9][0-9]*')
+           ->name('admin.portfolio.delete');

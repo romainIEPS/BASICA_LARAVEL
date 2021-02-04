@@ -5,6 +5,12 @@
 @endsection
 
 @section('adminContent')
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+
 <div class="page-header">
     <h1>Titre</h1>
   </div>
@@ -45,7 +51,7 @@
                     <a href="{{ route('admin.portfolio.edit.form', ['work' => $work->id]) }}">Edit</a>
                 </td>
                 <td>
-                    <a href="#">Delete</a>
+                    <a href="{{ route('admin.portfolio.delete', ['work' => $work->id]) }}">Delete</a>
                 </td>
                 </tr>
             @endforeach

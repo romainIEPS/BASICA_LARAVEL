@@ -118,6 +118,21 @@ class Works extends Controller
         $work->save();
         $work->tags()->detach($request->tags);
         $work->tags()->attach($request->tags);
+
         return redirect()->route('admin.portfolio.index');
+    }
+
+    /**
+     * Suppression d'un work
+     *
+     * @param Work $work
+     * @return void
+     */
+    public function adminWorksDelete(Work $work) {
+        $work->tags()->detach();
+        $work->delete();
+
+        return redirect()->route('admin.portfolio.index')
+                         ->with('status', "Suppresion effectué !");
     }
 }

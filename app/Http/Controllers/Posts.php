@@ -102,4 +102,11 @@ class Posts extends Controller
 
         return redirect()->route('admin.posts.index');
     }
+
+    public function adminPostsDelete(Post $post) {
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')
+                         ->with('status', "Suppresion effectué !");
+    }
 }

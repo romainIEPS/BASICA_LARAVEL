@@ -43,7 +43,7 @@
                     <a href="{{ route('admin.posts.edit.form', ['post' => $post->id]) }}">Edit</a>
                 </td>
                 <td>
-                    <a href="#">Delete</a>
+                    <a href="{{ route('admin.posts.delete', ['post' => $post->id]) }}">Delete</a>
                 </td>
                 </tr>
             @endforeach

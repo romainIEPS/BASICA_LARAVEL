@@ -104,3 +104,12 @@ Route::post('/admin/posts/add', [Posts::class, 'adminPostsAdd'])
            ->middleware(['auth'])
            ->where('posts', '[1-9][0-9]*')
            ->name('admin.posts.edit');
+
+// DELETE D'UN POST
+// PATTERN: admin/posts/delete/{post}
+// CTRL: Posts
+// ACTION: adminPostsDelete
+    Route::get('/admin/posts/delete/{post}', [Posts::class, 'adminPostsDelete'])
+           ->middleware(['auth'])
+           ->where('posts', '[1-9][0-9]*')
+           ->name('admin.posts.delete');

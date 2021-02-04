@@ -37,7 +37,7 @@
                 <td>{{ Str::limit($post->content, 300) }}</td>
                 <td>{{\Carbon\Carbon::parse($post->created_at)->format('d F Y')}}</td>
                 <td>{{$post->updated_at === null ?'-':\Carbon\Carbon::parse($post->udated_at)->format('d F Y')}}</td>
-                <td><img src="{{ asset('assets/img/portfolio/' . $post->image) }}" alt="{{ $post->title }}" width="50"></td>
+                <td><img src="{{ asset('assets/img/blog/' . $post->image) }}" alt="{{ $post->title }}" width="50"></td>
                 <td>{{ $post->categorie->name }}</td>
                 <td>
                     <a href="#">Edit</a>

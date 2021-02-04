@@ -41,11 +41,38 @@ class Posts extends Controller
     }
 
     /**
-     * Formulaire d'ajout d'un work
+     * Formulaire d'ajout d'un post
      *
      * @return view
      */
     public function adminPostsAddForm() {
         return view('admin.posts.addForm');
+    }
+
+    /**
+     * Ajout d'un post
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function adminPostsAdd(Request $request) {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $image = $request->file('image');
+        $imageName = $request->file('image')->getClientOriginalName();
+        $image->move(public_path('assets/img/blog'), $imageName);
+
+        $post = new Post;
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->image = $imageName;
+        $post->created_at = now();
+        $post->updated_at = null;
+        $post->categorie_id = $request->categorie;
+        $post->save();
+        
+        return redirect()->route('admin.posts.index');
     }
 }

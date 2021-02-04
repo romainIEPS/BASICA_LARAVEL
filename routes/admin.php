@@ -78,3 +78,11 @@ use App\Http\Controllers\Posts;
     Route::get('/admin/posts/add/form', [Posts::class, 'adminPostsAddForm'])
            ->middleware(['auth'])
            ->name('admin.posts.add.form');
+
+// AJOUT D'UN POST: INSERT
+// PATTERN: admin/posts/add
+// CTRL: Post
+// ACTION: adminPostsAdd
+Route::post('/admin/posts/add', [Posts::class, 'adminPostsAdd'])
+->middleware(['auth'])
+->name('admin.posts.add');

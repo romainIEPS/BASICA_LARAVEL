@@ -9,7 +9,7 @@
     <h1>Ajout d'un post</h1>
   </div>
   
-  <form action="{{ route('admin.portfolio.add')}}" method="post" enctype="multipart/form-data">
+  <form action="{{ route('admin.posts.add')}}" method="post" enctype="multipart/form-data">
     @csrf
   
     <div class="form-group">

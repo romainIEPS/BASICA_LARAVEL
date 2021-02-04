@@ -40,7 +40,7 @@
                 <td><img src="{{ asset('assets/img/blog/' . $post->image) }}" alt="{{ $post->title }}" width="50"></td>
                 <td>{{ $post->categorie->name }}</td>
                 <td>
-                    <a href="#">Edit</a>
+                    <a href="{{ route('admin.posts.edit.form', ['post' => $post->id]) }}">Edit</a>
                 </td>
                 <td>
                     <a href="#">Delete</a>

@@ -75,4 +75,14 @@ class Posts extends Controller
         
         return redirect()->route('admin.posts.index');
     }
+
+    /**
+     * Formulaire de modification d'un post
+     *
+     * @param Post $post
+     * @return void
+     */
+    public function adminPostsEditForm(Post $post) {
+        return view('admin.posts.editForm', compact('post'));
+    }
 }

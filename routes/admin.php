@@ -86,3 +86,12 @@ use App\Http\Controllers\Posts;
 Route::post('/admin/posts/add', [Posts::class, 'adminPostsAdd'])
 ->middleware(['auth'])
 ->name('admin.posts.add');
+
+// UPDATE D'UN POST: FORMULAIRE
+// PATTERN: admin/posts/edit/form/{post}
+// CTRL: Post
+// ACTION: adminPostsEditForm
+    Route::get('/admin/posts/edit/form/{post}', [Posts::class, 'adminPostsEditForm'])
+           ->middleware(['auth'])
+           ->where('posts', '[1-9][0-9]*')
+           ->name('admin.posts.edit.form');

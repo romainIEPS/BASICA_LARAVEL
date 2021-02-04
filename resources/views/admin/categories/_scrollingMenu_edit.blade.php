@@ -1,6 +1,7 @@
 {{-- 
     Variable disponible: 
-    $categories array(Categorie)    
+    $categories array(Categorie) 
+    $post Post   
 --}}
 
 <!-- Menu déroulant dynamique des categories -->
@@ -8,7 +9,7 @@
     <label for="categorie">Categories</label>
     <select name="categorie" class="form-control" id="categorie">
       @foreach ($categories as $categorie)      
-        <option value="{{ $categorie->id }}">
+        <option value="{{ $categorie->id }}" {{ $categorie->id === $post->categorie_id?'selected="selected"':''}}>
             {{ $categorie->name }}
         </option>
       @endforeach

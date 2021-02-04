@@ -11,10 +11,10 @@
 
 @section('adminContent')
 <div class="page-header">
-    <h1>Modification d'un post</h1>
+    <h1>Modification d'un work</h1>
 </div>
 <div>
-  <a href="posts">Retour à la liste des posts</a>
+  <a href="posts">Retour à la liste des works</a>
 </div>
   
   <form action="{{ route('admin.portfolio.edit', ['work' => $work->id]) }}" method="post" enctype="multipart/form-data">

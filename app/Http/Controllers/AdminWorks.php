@@ -54,7 +54,8 @@ class AdminWorks extends Controller
         $work->save();
         $work->tags()->attach($request->tags);
         
-        return redirect()->route('admin.portfolio.index');
+        return redirect()->route('admin.portfolio.index')
+                         ->with('status', "Ajout effectué !");
     }
 
     /**
@@ -82,7 +83,8 @@ class AdminWorks extends Controller
         $work->tags()->detach($request->tags);
         $work->tags()->attach($request->tags);
 
-        return redirect()->route('admin.portfolio.index');
+        return redirect()->route('admin.portfolio.index')
+                         ->with('status', "Modification effectuée !");;
     }
 
     /**
@@ -96,6 +98,6 @@ class AdminWorks extends Controller
         $work->delete();
 
         return redirect()->route('admin.portfolio.index')
-                         ->with('status', "Suppresion effectué !");
+                         ->with('status', "Suppresion effectuée !");
     }
 }

@@ -50,7 +50,8 @@ class AdminPosts extends Controller
         $post->categorie_id = $request->categorie;
         $post->save();
         
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')
+                         ->with('status', "Ajout effectué !");;
     }
 
     /**
@@ -77,13 +78,14 @@ class AdminPosts extends Controller
         $post->categorie_id = $request->categorie;
         $post->save();
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')
+                         ->with('status', "Modification effectuée !");;
     }
 
     public function delete(Post $post) {
         $post->delete();
 
         return redirect()->route('admin.posts.index')
-                         ->with('status', "Suppresion effectué !");
+                         ->with('status', "Suppresion effectuée !");
     }
 }

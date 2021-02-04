@@ -22,6 +22,7 @@
             <th>Image</th>
             <th>In Slider</th>
             <th>Client</th>
+            <td>Tags</td>
           </tr>
         </thead>
         <tbody>
@@ -29,12 +30,17 @@
                 <tr>
                 <td>{{ $work->id }}</td>
                 <td>{{ $work->title }}</td>
-                <td>{{ $work->content }}</td>
+                <td>{{ Str::limit($work->content, 300) }}</td>
                 <td>{{\Carbon\Carbon::parse($work->created_at)->format('d F Y')}}</td>
                 <td>{{$work->updated_at === null ?'-':\Carbon\Carbon::parse($work->udated_at)->format('d F Y')}}</td>
                 <td><img src="{{ asset('assets/img/portfolio/' . $work->image) }}" alt="{{ $work->title }}" width="50"></td>
                 <td>{{ $work->inSlider == 0 ? 'No' : 'Yes'}}</td>
                 <td>{{ $work->client->name }}</td>
+                <td>
+                  @foreach ($work->tags as $tag)
+                      {{$tag->name}}
+                  @endforeach
+                </td>
                 <td>
                     <a href="{{ route('admin.portfolio.edit.form', ['work' => $work->id]) }}">Edit</a>
                 </td>

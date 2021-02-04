@@ -102,7 +102,7 @@ class Works extends Controller
     }
 
     /**
-     * Update d'un work
+     * Formulaire de modification d'un work
      *
      * @return view
      */
@@ -110,6 +110,13 @@ class Works extends Controller
         return view('admin.works.editForm', compact('work'));
     }
 
+    /**
+     * Update d'un work
+     *
+     * @param Work $work
+     * @param Request $request
+     * @return void
+     */
     public function adminWorksEdit(Work $work, Request $request) {
         $work->title = $request->title;
         $work->content = $request->content;

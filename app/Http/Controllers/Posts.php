@@ -85,4 +85,21 @@ class Posts extends Controller
     public function adminPostsEditForm(Post $post) {
         return view('admin.posts.editForm', compact('post'));
     }
+
+    /**
+     * Update d'un post
+     *
+     * @param Post $post
+     * @param Request $request
+     * @return void
+     */
+    public function adminPostsEdit(Post $post, Request $request) {
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->updated_at = now();
+        $post->categorie_id = $request->categorie;
+        $post->save();
+
+        return redirect()->route('admin.posts.index');
+    }
 }

@@ -17,7 +17,7 @@
   <a href="{{ route('admin.posts.index') }}">Retour à la liste des posts</a>
 </div>
   
-  <form action="#" method="post" enctype="multipart/form-data">
+  <form action="{{ route('admin.posts.edit', ['post' => $post->id]) }}" method="post" enctype="multipart/form-data">
     @csrf
     
     <div class="form-group">

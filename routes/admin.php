@@ -14,7 +14,7 @@ use App\Http\Controllers\Posts;
 
 // ROUTE LISTE DES WORKS
 // PATTERN: /admin/portfolio/index
-// CTRL: Work
+// CTRL: Works
 // ACTION: adminWorksIndex
     Route::get('/admin/portfolio/index', [Works::class, 'adminWorksIndex'])
            ->middleware(['auth'])
@@ -22,7 +22,7 @@ use App\Http\Controllers\Posts;
 
 // AJOUT D'UN WORK: FORMULAIRE
 // PATTERN: admin/portfolio/add/form
-// CTRL: Work
+// CTRL: Works
 // ACTION: adminWorksAddForm
     Route::get('/admin/portfolio/add/form', [Works::class, 'adminWorksAddForm'])
            ->middleware(['auth'])
@@ -30,7 +30,7 @@ use App\Http\Controllers\Posts;
 
 // AJOUT D'UN WORK: INSERT
 // PATTERN: admin/portfolio/add
-// CTRL: Work
+// CTRL: Works
 // ACTION: adminWorksAdd
     Route::post('/admin/portfolio/add', [Works::class, 'adminWorksAdd'])
            ->middleware(['auth'])
@@ -38,7 +38,7 @@ use App\Http\Controllers\Posts;
     
 // UPDATE D'UN WORK: FORMULAIRE
 // PATTERN: admin/portfolio/edit/form/{work}
-// CTRL: Work
+// CTRL: Works
 // ACTION: adminWorksEditForm
     Route::get('/admin/portfolio/edit/form/{work}', [Works::class, 'adminWorksEditForm'])
            ->middleware(['auth'])
@@ -46,8 +46,8 @@ use App\Http\Controllers\Posts;
            ->name('admin.portfolio.edit.form');
 
 // UPDATE D'UN WORK
-// PATTERN: admin/portfolio/edit/{edit}
-// CTRL: Work
+// PATTERN: admin/portfolio/edit/{work}
+// CTRL: Works
 // ACTION: adminWorksEdit
     Route::post('/admin/portfolio/edit/{work}', [Works::class, 'adminWorksEdit'])
            ->middleware(['auth'])
@@ -56,7 +56,7 @@ use App\Http\Controllers\Posts;
 
 // DELETE D'UN WORK
 // PATTERN: admin/portfolio/delete/{work}
-// CTRL: Work
+// CTRL: Works
 // ACTION: adminWorksDelete
     Route::get('/admin/portfolio/delete/{work}', [Works::class, 'adminWorksDelete'])
            ->middleware(['auth'])
@@ -65,7 +65,7 @@ use App\Http\Controllers\Posts;
 
 // ROUTE LISTE DES POSTS
 // PATTERN: /admin/posts/index
-// CTRL: Post
+// CTRL: Posts
 // ACTION: adminPostsIndex
     Route::get('/admin/posts/index', [Posts::class, 'adminPostsIndex'])
            ->middleware(['auth'])
@@ -73,7 +73,7 @@ use App\Http\Controllers\Posts;
 
 // AJOUT D'UN POST: FORMULAIRE
 // PATTERN: admin/posts/add/form
-// CTRL: Post
+// CTRL: Posts
 // ACTION: adminPostsAddForm
     Route::get('/admin/posts/add/form', [Posts::class, 'adminPostsAddForm'])
            ->middleware(['auth'])
@@ -81,7 +81,7 @@ use App\Http\Controllers\Posts;
 
 // AJOUT D'UN POST: INSERT
 // PATTERN: admin/posts/add
-// CTRL: Post
+// CTRL: Posts
 // ACTION: adminPostsAdd
 Route::post('/admin/posts/add', [Posts::class, 'adminPostsAdd'])
 ->middleware(['auth'])
@@ -89,9 +89,18 @@ Route::post('/admin/posts/add', [Posts::class, 'adminPostsAdd'])
 
 // UPDATE D'UN POST: FORMULAIRE
 // PATTERN: admin/posts/edit/form/{post}
-// CTRL: Post
+// CTRL: Posts
 // ACTION: adminPostsEditForm
     Route::get('/admin/posts/edit/form/{post}', [Posts::class, 'adminPostsEditForm'])
            ->middleware(['auth'])
            ->where('posts', '[1-9][0-9]*')
            ->name('admin.posts.edit.form');
+
+// UPDATE D'UN POST
+// PATTERN: admin/posts/edit/{post}
+// CTRL: Posts
+// ACTION: adminPostsEdit
+    Route::post('/admin/posts/edit/{post}', [Posts::class, 'adminPostsEdit'])
+           ->middleware(['auth'])
+           ->where('posts', '[1-9][0-9]*')
+           ->name('admin.posts.edit');

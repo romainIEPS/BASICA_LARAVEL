@@ -39,4 +39,13 @@ class Posts extends Controller
         $posts = Post::all();
         return view('admin.posts.index', compact('posts')); 
     }
+
+    /**
+     * Formulaire d'ajout d'un work
+     *
+     * @return view
+     */
+    public function adminPostsAddForm() {
+        return view('admin.posts.addForm');
+    }
 }

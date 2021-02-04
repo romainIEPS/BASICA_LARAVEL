@@ -70,3 +70,11 @@ use App\Http\Controllers\Posts;
     Route::get('/admin/posts/index', [Posts::class, 'adminPostsIndex'])
            ->middleware(['auth'])
            ->name('admin.posts.index');
+
+// AJOUT D'UN POST: FORMULAIRE
+// PATTERN: admin/posts/add/form
+// CTRL: Post
+// ACTION: adminPostsAddForm
+    Route::get('/admin/posts/add/form', [Posts::class, 'adminPostsAddForm'])
+           ->middleware(['auth'])
+           ->name('admin.posts.add.form');

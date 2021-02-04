@@ -1,12 +1,12 @@
 @extends('templates.admin')
 
 @section('adminTitle')
-    Ajout d'un work
+    Ajout d'un post
 @endsection
 
 @section('adminContent')
 <div class="page-header">
-    <h1>Ajout d'un work</h1>
+    <h1>Ajout d'un post</h1>
   </div>
   
   <form action="{{ route('admin.portfolio.add')}}" method="post" enctype="multipart/form-data">
@@ -26,9 +26,7 @@
       <input type="file" name="image" id="image">
     </div>
     
-    @include('admin.tags._checkbox_add', ['tags' => \App\Models\Tag::all()])
-    
-    @include('admin.clients._scrollingMenu_add', ['clients' => \App\Models\Client::all()])
+    @include('admin.categories._scrollingMenu_add', ['categories' => \App\Models\Categorie::all()])
   
     <div>
       <input type="submit" />

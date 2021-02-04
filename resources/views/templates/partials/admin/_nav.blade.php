@@ -22,7 +22,7 @@
               <li role="separator" class="divider"></li>
               <li class="dropdown-header">Posts</li>
               <li><a href="{{ route('admin.posts.index') }}">Liste des posts</a></li>
-              <li><a href="#">Ajouter un posts</a></li>
+              <li><a href="{{ route('admin.posts.add.form') }}">Ajouter un posts</a></li>
             </ul>
           </li>
           <li><a href="{{ route('logout') }} ">Logout</a></li>

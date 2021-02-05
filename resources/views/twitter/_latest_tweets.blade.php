@@ -31,3 +31,4 @@
         </div>
         @endif
   <!-- End Featured News -->
+</div>

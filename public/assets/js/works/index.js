@@ -19,13 +19,4 @@ $(function() {
 
     });
 
-    $(window).scroll(function () { 
-        if($(window).height() + $(window).scrollTop() >= $(document).height()) {
-
-            $('#works_index_more').click();
-            
-        }
-    });
-      
-
 });

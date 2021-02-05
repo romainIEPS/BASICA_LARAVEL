@@ -14,6 +14,8 @@
                                 <div class="carousel-content centered">
                                     <h2 class="animation animated-item-1">{{ $slide->title }}</h2>
                                     <p class="animation animated-item-2">{{ Str::limit($slide->content, 200) }}</p>
+                                    <br>
+                                    <a class="btn btn-md animation animated-item-3" href="{{ route('portfolio.show', ['work' => $slide->id, 'slug'=> Str::slug($slide->title, '-')]) }}">Learn More</a>
                                 </div>
                             </div>
                         </div>

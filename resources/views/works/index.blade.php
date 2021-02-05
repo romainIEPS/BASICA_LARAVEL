@@ -13,16 +13,10 @@
 @endsection
 
 @section('content')
-<!-- Page Title -->
-<div class="section section-breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Our Portfolio</h1>
-            </div>
-        </div>
-    </div>
-</div>
+@extends('templates.partials.public._banner')
+@section('bannerTitle')
+    Our Portfolio
+@endsection
 
 
 <div class="section">

@@ -5,16 +5,10 @@
 @endsection
 
 @section('content')
-<!-- Page Title -->
-<div class="section section-breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1>Contact Us</h1>
-            </div>
-        </div>
-    </div>
-</div>
+@extends('templates.partials.public._banner')
+@section('bannerTitle')
+    Contact us
+@endsection
 
 <div class="section section-map">
 
